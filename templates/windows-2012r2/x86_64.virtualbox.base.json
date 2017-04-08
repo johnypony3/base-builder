@@ -12,7 +12,7 @@
         "cpu_count": "3",
         "packer_output_dir": "../../output",
         "vagrant_box_version": "0.0.1",
-        "vagrant_output": "../..output/windows_2012_r2_-base_0.0.10.box",
+        "vagrant_output": "../..output/windows_2012_r2_-base.box",
         "vagrantfile_template": "./files/virtualbox/windows_2012_r2_base.vagrantfile"
     },
     "description": "Builds a Windows Server 2012 R2 template VM for use in VirtualBox",
