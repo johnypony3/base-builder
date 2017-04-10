@@ -1,0 +1,42 @@
+{
+    "variables": {
+        "provisioner": "virtualbox",
+        "template_name": "windows-2012r2-x86_64",
+        "template_config": "base",
+        "template_os": "Windows2012_64",
+        "iso_url": "http://download.microsoft.com/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96/9600.16384.WINBLUE_RTM.130821-1623_X64FRE_SERVER_EVAL_EN-US-IRM_SSS_X64FREE_EN-US_DV5.ISO",
+        "iso_checksum_type": "md5",
+        "iso_checksum": "458ff91f8abc21b75cb544744bf92e6a",
+        "headless": "false",
+        "memory_size": "4112",
+        "cpu_count": "3",
+        "packer_output_dir": "/Users/emeshuris/git/packer-windows/base-builder/templates/windows-2012r2",
+        "vagrant_box_version": "0.0.10",
+        "vagrant_output": "/users/emeshuris/.boxes/windows_2012_r2_fandango-base/windows_2012_r2_fandango-base_"
+    },
+    "description": "Builds a Windows Server 2012 R2 template VM for use in VirtualBox",
+    "builders": [{
+        "type": "virtualbox-ovf",
+        "source_path": "output-windows-2012r2-x86_64-virtualbox-base/packer-windows-2012r2-x86_64-virtualbox-base.ovf",
+        "communicator": "winrm",
+        "winrm_username": "vagrant",
+        "winrm_password": "vagrant",
+        "winrm_timeout": "16h",
+        "shutdown_command": "shutdown /s /t 1 /c \"Packer Shutdown\" /f /d p:4:1",
+        "shutdown_timeout": "1h",
+        "skip_export": "false",
+        "post_shutdown_delay": "180s",
+        "guest_additions_mode": "disable",
+        "headless": "{{user `headless`}}",
+        "vboxmanage": [
+            ["modifyvm", "{{.Name}}", "--memory", "{{user `memory_size`}}"],
+            ["modifyvm", "{{.Name}}", "--cpus", "{{user `cpu_count`}}"]
+        ]
+    }],
+    "post-processors": [{
+        "type": "vagrant",
+        "keep_input_artifact": false,
+        "output": "{{user `vagrant_output`}}{{user `vagrant_box_version`}}.box",
+        "vagrantfile_template": "/Users/emeshuris/git/packer-windows/local-environment/vagrant-files/windows_2012_r2_fandango-base.vagrantfile"
+    }]
+}

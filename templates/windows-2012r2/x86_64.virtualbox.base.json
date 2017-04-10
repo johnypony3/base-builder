@@ -73,7 +73,7 @@
     ],
     "post-processors": [{
         "type": "vagrant",
-        "keep_input_artifact": false,
+        "keep_input_artifact": true,
         "output": "{{user `vagrant_output`}}",
         "vagrantfile_template": "{{user `vagrantfile_template`}}"
     }]
