@@ -11,9 +11,7 @@
         "memory_size": "4112",
         "cpu_count": "3",
         "packer_output_dir": "../../output",
-        "vagrant_box_version": "0.0.1",
-        "vagrant_output": "../../output/windows_2012_r2_-base.box",
-        "vagrantfile_template": "./files/virtualbox/windows_2012_r2_base.vagrantfile"
+        "vagrant_box_version": "0.0.1"
     },
     "description": "Builds a Windows Server 2012 R2 template VM for use in VirtualBox",
     "builders": [{
@@ -70,11 +68,5 @@
                 "A:\\clean-disk-sdelete.ps1"
             ]
         }
-    ],
-    "post-processors": [{
-        "type": "vagrant",
-        "keep_input_artifact": true,
-        "output": "{{user `vagrant_output`}}",
-        "vagrantfile_template": "{{user `vagrantfile_template`}}"
-    }]
+    ]
 }
