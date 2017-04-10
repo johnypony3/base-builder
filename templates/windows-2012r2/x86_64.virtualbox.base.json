@@ -1,7 +1,7 @@
 {
     "variables": {
         "provisioner": "virtualbox",
-        "template_name": "windows-2012r2-x86_64",
+        "template_name": "windows_2012_r2_base",
         "template_config": "base",
         "template_os": "Windows2012_64",
         "iso_url": "http://download.microsoft.com/download/6/2/A/62A76ABB-9990-4EFC-A4FE-C7D698DAEB96/9600.16384.WINBLUE_RTM.130821-1623_X64FRE_SERVER_EVAL_EN-US-IRM_SSS_X64FREE_EN-US_DV5.ISO",
