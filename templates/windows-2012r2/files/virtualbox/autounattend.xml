@@ -40,7 +40,7 @@
                             <Order>2</Order>
                             <Type>Primary</Type>
                             <Extend>false</Extend>
-                            <Size>21475</Size>
+                            <Size>40610</Size>
                         </CreatePartition>
                     </CreatePartitions>
                     <ModifyPartitions>

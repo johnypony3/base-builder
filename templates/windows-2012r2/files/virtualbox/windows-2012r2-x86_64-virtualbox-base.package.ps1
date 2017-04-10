@@ -42,6 +42,15 @@ if (-not (Test-Path "A:\NET45.installed"))
   if (Test-PendingReboot) { Invoke-Reboot }
 }
 
+if (-not (Test-Path "a:\kb2919355.installed"))
+{
+# Install kb2919355
+  Write-BoxstarterMessage "kb2919355"
+  choco install kb2919355 -y
+  Touch-File "a:\kb2919355.installed"
+  if (Test-PendingReboot) { Invoke-Reboot }
+}
+
 # Install Updates and reboot until this is completed.
 # not installing because using slipstream iso
 Install-WindowsUpdate -AcceptEula
