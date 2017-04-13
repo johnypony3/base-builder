@@ -46,14 +46,14 @@ if (-not (Test-Path "a:\kb2919355.installed"))
 {
 # Install kb2919355
   Write-BoxstarterMessage "kb2919355"
-  choco install kb2919355 -y
+#  choco install kb2919355 -y
   Touch-File "a:\kb2919355.installed"
   if (Test-PendingReboot) { Invoke-Reboot }
 }
 
 # Install Updates and reboot until this is completed.
 # not installing because using slipstream iso
-Install-WindowsUpdate -AcceptEula
+#Install-WindowsUpdate -AcceptEula
 if (Test-PendingReboot) { Invoke-Reboot }
 
 # Do one final reboot in case there are any more updates to be picked up.
