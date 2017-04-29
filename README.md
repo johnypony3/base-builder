@@ -19,5 +19,3 @@ Roughly based on puppetlabs-packer
 
 ### Output
 a vagrant box file ready for import
-
-### comment 
